@@ -17,7 +17,7 @@ Character.all.each do |character|
   born = character.born.split(" ")
 
   born.each do |string|
-    character.born = string.delete('a-zA-Z') unless string.to_i == 0
+    character.born = string.delete('a-zA-Z,') unless string.to_i == 0
   end
 
   character.save
