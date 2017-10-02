@@ -6,5 +6,19 @@ end
 
 Character.all.each do |character|
   character.destroy if character.name == ""
-  character.destroy if character.house == "[]"
+  character.destroy if character.born == ""
+
+  character.destroy if eval(character.house).empty?
+
+  character.save
+end
+
+Character.all.each do |character|
+  born = character.born.split(" ")
+
+  born.each do |string|
+    character.born = string unless string.to_i == 0
+  end
+
+  character.save
 end
