@@ -66,6 +66,7 @@ class CharactersController < ApplicationController
   end
 
   def by_house
+    @house_name = GameOfThronesApi.get_houses.select { |house| house["url"].split("/").last == params[:house] }.first["name"]
     @characters = Character.all.select { |char| char.house_id == params[:house] }
   end
 
