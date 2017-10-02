@@ -1,0 +1,6 @@
+$(".characters").empty()
+$(".characters").append("<h2><%= @characters.count %> people born within <%= params[:years] %> years of <%=params[:character] %><h2>")
+
+<% @characters.each do |character| %>
+  $(".characters").append("<li><%= character %></li>")
+<% end %>

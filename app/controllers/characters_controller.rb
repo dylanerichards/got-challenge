@@ -18,6 +18,12 @@ class CharactersController < ApplicationController
   end
 
   def born_within_years_of_results
+    character = Character.where(name: params[:character]).first
+
+    @characters = character.born_within_years_of(params[:years]).sort_by(&:born).map do |char|
+      "#{char.name}, born #{char.born}"
+    end
+
     respond_to do |format|
       format.js
     end
