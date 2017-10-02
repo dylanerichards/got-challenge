@@ -1,0 +1,11 @@
+<%= form_tag("/born-within-years-of", remote: true) do %>
+
+  <%= label_tag :character %>
+  <%= text_field_tag :character %>
+
+  <%= label_tag :years %>
+  <%= text_field_tag :years %>
+
+  <%= submit_tag %>
+
+<% end %>

@@ -14,6 +14,15 @@ class CharactersController < ApplicationController
     @characters = Character.all.select { |char| char.house_id == params[:house] }
   end
 
+  def born_within_years_of
+  end
+
+  def born_within_years_of_results
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def set_character
