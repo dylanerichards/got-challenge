@@ -61,6 +61,14 @@ class CharactersController < ApplicationController
     end
   end
 
+  def by_year
+    @characters = Character.where(born: params[:year])
+  end
+
+  def by_house
+    @characters = Character.all.select { |char| char.house_id == params[:house] }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_character

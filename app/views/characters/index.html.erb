@@ -16,8 +16,10 @@
     <% @characters.each do |character| %>
       <tr>
         <td><%= character.name %></td>
-        <td><%= character.born %></td>
-        <td><%= character.house %></td>
+        <td><%= link_to character.born, year_path(character.born) %></td>
+        <td>
+            <li><%= link_to character.house, house_path(character.house_id) %></li>
+        </td>
         <td><%= link_to 'Show', character %></td>
         <td><%= link_to 'Edit', edit_character_path(character) %></td>
         <td><%= link_to 'Destroy', character, method: :delete, data: { confirm: 'Are you sure?' } %></td>

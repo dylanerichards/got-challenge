@@ -3,7 +3,7 @@ class CreateCharacters < ActiveRecord::Migration[5.1]
     create_table :characters do |t|
       t.string :name
       t.string :born, default: "Unknown"
-      t.text :house, default: [].to_yaml, array: true
+      t.string :house
 
       t.timestamps
     end
